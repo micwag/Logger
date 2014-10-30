@@ -24,8 +24,6 @@ class Logger
 	/**
 	 * @param string $logFilePath
 	 * @param int    $logLevel
-	 *
-	 * @throws \NotFoundException
 	 */
 	protected function __construct($logFilePath, $logLevel)
 	{
@@ -38,6 +36,8 @@ class Logger
 	/**
 	 * @param int    $logLevel
 	 * @param string $message
+	 *
+	 * @throws \Exception
 	 */
 	protected function log($logLevel, $message)
 	{
