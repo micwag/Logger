@@ -1,6 +1,8 @@
 <?php
 namespace de\micwag;
 
+require_once 'LogLevel.php';
+
 /**
  * Logging class
  * Uses singleton pattern
@@ -39,16 +41,20 @@ class Logger
 	 */
 	protected function log($logLevel, $message)
 	{
-		if ($logLevel >= $this->logLevel) {
-			$date      = date('Y-m-d H:i:s');
-			$logString = "$date;$logLevel;$message\n";
+		if (!Logger::$isInitialized) {
+			throw new \Exception("Logger is not initialized yet.");
+		} else {
+			if ($logLevel >= $this->logLevel) {
+				$date      = date('Y-m-d H:i:s');
+				$logString = "$date;$logLevel;$message\n";
 
-			try {
-				$file = fopen($this->logFilePath, 'a');
-				fwrite($file, $logString);
-				fclose($file);
-			} catch (\Exception $e) {
-				echo "Cannot write into log file.";
+				try {
+					$file = fopen($this->logFilePath, 'a');
+					fwrite($file, $logString);
+					fclose($file);
+				} catch (\Exception $e) {
+					echo "Cannot write into log file.";
+				}
 			}
 		}
 	}
