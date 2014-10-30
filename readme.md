@@ -8,15 +8,18 @@ Simply include both Logger.php. LogLevel.php is included in Logger.php. If you d
 directory, you must edit the path to LogLevel.php.
 
 ###Initialization###
-
-> \de\micwag\Logger::initialize(__DIR__ . '/log.txt', \de\micwag\LogLevel::NOTICE);
+```
+\de\micwag\Logger::initialize(__DIR__ . '/log.txt', \de\micwag\LogLevel::NOTICE);
+```
 
 ###Logging###
-> \de\micwag\Logger::info('Your log text');
-> \de\micwag\Logger::notice('Your log text');
-> \de\micwag\Logger::warning('Your log text');
-> \de\micwag\Logger::error('Your log text');
-> \de\micwag\Logger::fatalError('Your log text');
+```
+\de\micwag\Logger::info('Your log text');
+\de\micwag\Logger::notice('Your log text');
+\de\micwag\Logger::warning('Your log text');
+\de\micwag\Logger::error('Your log text');
+\de\micwag\Logger::fatalError('Your log text');
+```
 
 ##License##
 Author: [Michael Wagner](http://www.micwag.de) 
